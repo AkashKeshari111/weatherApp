@@ -20,7 +20,7 @@ The Weather App is a web application that provides real-time weather information
 
 ## Preview
 
-![Weather App Preview](public/preview.png)
+![Weather App Preview](public/preview.PNG)
 
 ## Installation
 
