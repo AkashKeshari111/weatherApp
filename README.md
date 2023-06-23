@@ -14,13 +14,13 @@ The Weather App is a web application that provides real-time weather information
 ## Technologies Used
 
 - Front-end: React.js
-- Back-end: Node.js,Express.js,MongoDB
+- Back-end: Node.js, Express.js, MongoDB
 - UI Library: Chakra UI
 - API: OpenWeatherMap API
 
 ## Preview
 
-![Weather App Preview](preview.PNG)
+![Weather App Preview](public/preview.png)
 
 ## Installation
 
