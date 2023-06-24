@@ -15,32 +15,36 @@ import React from "react";
 
 const Forcaste = ({ weatherData, loading }) => {
   const currentDate = new Date();
-  var options = { weekday: "long" };
-  var dayOfWeek = currentDate.toLocaleDateString("en-US", options);
+  let options = { weekday: "long" };
+  let dayOfWeek = currentDate.toLocaleDateString("en-US", options);
+
+  if (loading) {
+    return (
+      <Center height="400px">
+        <Spinner
+          size="xl"
+          color="blue.500"
+          thickness={5}
+          emptyColor="gray.300"
+        />
+      </Center>
+    );
+  }
 
   return (
     <Box w="100%" p={4} mt={10} mb={10}>
-      {loading ? (
-        <Center>
-          <Spinner
-            thickness="4px"
-            speed="0.65s"
-            emptyColor="gray.200"
-            color="blue.500"
-            size="xl"
-          />
-        </Center>
-      ) : weatherData ? (
+      {weatherData ? (
         <Stack>
           <Center>
             <Flex
               gap={4}
               flexDir={{ base: "column", md: "row" }}
               rowGap={{ base: "10px", md: "0px" }}
+              fadeDuration={2}
             >
               <Box
                 w="300px"
-                h="210px"
+                h="auto"
                 bg="rgba(0,0,0,0.2)"
                 borderRadius={{ base: "20px", md: "20px 20px 0px 0px" }}
               >
@@ -65,7 +69,12 @@ const Forcaste = ({ weatherData, loading }) => {
                     mt={2}
                     mb={2}
                   >
-                    {weatherData.location.localtime.slice(10, 13) >= 18 ? (
+                    {weatherData.location.localtime
+                      .slice(10, 16)
+                      .split(":")[0] >= 18 ||
+                    weatherData.location.localtime
+                      .slice(10, 16)
+                      .split(":")[0] <= 4 ? (
                       <Box
                         w="40%"
                         h="100%"
@@ -121,7 +130,7 @@ const Forcaste = ({ weatherData, loading }) => {
               </Box>
               <Box
                 w="300px"
-                h="210px"
+                h="auto"
                 bg="rgba(0,0,0,0.2)"
                 borderRadius={{ base: "20px", md: "20px 20px 0px 0px" }}
               >
@@ -187,6 +196,7 @@ const Forcaste = ({ weatherData, loading }) => {
               h="135px"
               bg={{ base: "transparent", md: "rgba(0,0,0,0.2)" }}
               fontFamily="Gill Sans, Gill Sans MT, Calibri, Trebuchet MS, sans-serif"
+              fadeDuration={10}
             >
               <VStack h="100%" spacing={0}>
                 <Box
@@ -349,7 +359,7 @@ const Forcaste = ({ weatherData, loading }) => {
         <Center>
           <Box w={{ base: "95%", md: "60%", lg: "45%" }} h="400px">
             <Image
-              src="./noweather.png"
+              src="./Degree-pana.svg"
               alt="no weather report show"
               objectFit="contain"
               w="100%"

@@ -9,26 +9,26 @@ function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(false);
   return (
-    <Box
-      p={4}
-      w="100%"
-      h={{base:"175vh",md:"100vh"}}
-      bgImage="linear-gradient(145deg, rgba(238,245,18,0.8), rgba(49,130,206,0.6))"
-      fontFamily="Gill Sans, Gill Sans MT, Calibri, Trebuchet MS, sans-serif"
-    >
-      <Searchbar
-        weatherData={weatherData}
-        setWeatherData={setWeatherData}
-        loading={loading}
-        setLoading={setLoading}
-      />
-      <Forcaste
-          weatherData={weatherData}
-          setWeatherData={setWeatherData}
-          loading={loading}
-          setLoading={setLoading}
-      />
-    </Box>
+    <Container
+    p={4}
+    maxW="container.xlg"
+    h={{ base: weatherData ? "175vh" : "100vh", md: "100vh" }} 
+    bgImage="linear-gradient(145deg, rgba(238,245,18,0.8), rgba(49,130,206,0.6))"
+    fontFamily="Gill Sans, Gill Sans MT, Calibri, Trebuchet MS, sans-serif"
+  >
+    <Searchbar
+      weatherData={weatherData}
+      setWeatherData={setWeatherData}
+      loading={loading}
+      setLoading={setLoading}
+    />
+    <Forcaste
+      weatherData={weatherData}
+      setWeatherData={setWeatherData}
+      loading={loading}
+      setLoading={setLoading}
+    />
+  </Container>
   );
 }
 
