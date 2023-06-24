@@ -18,6 +18,13 @@ The Weather App is a web application that provides real-time weather information
 - UI Library: Chakra UI
 - API: OpenWeatherMap API
 
+## How To Use
+
+- Search any valid location for better result and press 'Enter' key.
+- If your location is correct then it show success toast message.
+- If you location is invalid then it show 'Location not found!'
+- While searching if you empty the search bar and then 'Enter' key press, it will tell you 'Please enter the location!' by toast message.
+
 ## Preview
 
 ![Weather App Preview](public/preview.PNG)
